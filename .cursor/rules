@@ -1,0 +1,71 @@
+# FiveM TypeScript Boilerplate - AI Agent Rules
+
+## Project Overview
+This is a FiveM TypeScript boilerplate for creating server resources with TypeScript, React NUI, and Prisma ORM. The project provides a structured approach to building FiveM resources with modern development tools.
+
+## Project Structure
+```
+/workspace/
+├── common/                    # Shared utilities and types
+│   ├── client/               # Client-side common code
+│   ├── server/               # Server-side common code
+│   ├── shared/               # Shared utilities (emitNetPromise, onNetPromise)
+│   └── lib/                  # Common libraries (UUID, etc.)
+├── config/                   # Build configuration
+│   ├── esbuild.config.js     # Main build config
+│   └── nui.config.js         # NUI build config
+├── prisma/                   # Database schema
+│   └── schema.prisma         # Prisma schema file
+└── resources/                # FiveM resources
+    └── example/              # Example resource
+        ├── fxmanifest.lua    # FiveM manifest
+        ├── src/
+        │   ├── client/       # Client-side TypeScript
+        │   ├── server/       # Server-side TypeScript
+        │   └── web/          # React NUI application
+        └── package.json      # Resource dependencies
+```
+
+## Key Technologies
+- **FiveM**: Grand Theft Auto V multiplayer modification platform
+- **TypeScript**: Type-safe JavaScript development
+- **React**: Frontend UI framework for NUI
+- **Vite**: Fast build tool for React development
+- **Prisma**: Database ORM with PostgreSQL support
+- **esbuild**: Fast TypeScript bundler
+
+## Development Workflow
+1. **Resource Creation**: Copy the example resource and modify
+2. **Development**: Use TypeScript for client/server, React for NUI
+3. **Building**: Use `yarn build <resourceName>` to compile and deploy
+4. **NUI Development**: Use `yarn build-nui <resourceName>` for web UI
+
+## Important Patterns
+- **emitNetPromise/onNetPromise**: Promise-based client-server communication
+- **NUI Communication**: fetchNui utility for React-to-FiveM communication
+- **Database**: Prisma client for database operations
+- **Build System**: esbuild for fast compilation and bundling
+
+## File Naming Conventions
+- Resources go in `/resources/<resourceName>/`
+- Client code: `src/client/client.ts`
+- Server code: `src/server/server.ts`
+- NUI code: `src/web/` (React app)
+- Manifest: `fxmanifest.lua`
+
+## Build Commands
+- `yarn build <resourceName>`: Build and deploy resource
+- `yarn build-nui <resourceName>`: Build NUI only
+- `yarn build <resourceName> true`: Enable watch mode
+
+## Database Setup
+- Uses PostgreSQL with Prisma ORM
+- Schema defined in `prisma/schema.prisma`
+- Requires `DATABASE_URL` environment variable
+
+## Common Utilities
+- `delay(ms)`: Async delay function
+- `getDistanceFastNoSqrt()`: Fast distance calculation
+- `uuidv4()`: UUID generation
+- `emitNetPromise<T>()`: Promise-based network events
+- `onNetPromise<T>()`: Promise-based network event handlers
